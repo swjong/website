@@ -25,7 +25,7 @@ frontend:
             echo "S3 content sync failed for content/";
             exit 1;
           fi
-        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static            static/images/blog/ --delete; then
+        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/ --delete; then
             echo "S3 images sync failed for blog images";
             exit 1;
           fi
@@ -48,4 +48,3 @@ frontend:
       - content/chinese/**/*
       - ~/.local/bin/hugo
       - /usr/local/go/bin/go
-```
