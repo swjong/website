@@ -1,3 +1,4 @@
+```yaml
 version: 1
 frontend:
   phases:
@@ -5,10 +6,8 @@ frontend:
       commands:
         - echo "Installing dependencies..."
         - sudo yum update -y
-        # Remove this line that's causing the error
-        # - sudo yum remove -y curl-minimal
-        # Add --skip-broken flag to skip problematic packages
-        - sudo yum install -y curl tar python3-pip --skip-broken
+        # Use --best --allowerasing to resolve curl conflicts
+        - sudo yum install -y curl tar python3-pip --best --allowerasing
         - echo "Installing Go..."
         - curl -OL https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
         - sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
@@ -23,22 +22,42 @@ frontend:
         - rm hugo.tar.gz
         - echo "Installing AWS CLI..."
         - pip install --upgrade awscli
-        # Ensure content directories exist
-        - mkdir -p content/chinese/blog/post static/images/blog
+        # Ensure content and static directories exist
+        - mkdir -p content/chinese/blog/post content/chinese/casestudies static/images/blog static/images/gallery
         # Sync content from S3 bucket with error handling
-        - if ! aws s3 sync s3://itsquarewebsite1/content/ content/chinese/blog/post; then
-            echo "S3 content sync failed";
+        - if ! aws s3 sync s3://itsquarewebsite1/content/ content/chinese/ --delete; then
+            echo "S3 content sync failed for content/";
             exit 1;
           fi
-        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/; then
-            echo "S3 images sync failed";
+        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/ --delete; then
+            echo "S3 images sync failed for blog images";
             exit 1;
+          fi
+        # Create static/images/gallery to prevent shortcode error
+        - if ! aws s3 sync s3://itsquareweb/static/images/gallery/ static/images/gallery/ --delete; then
+            echo "S3 images sync for gallery not found, creating empty directory";
+            mkdir -p static/images/gallery;
+          fi
+        # Optional: Install new theme (e.g., Hugo Book) for migration
+        - echo "Installing new Hugo theme (hugo-book)..."
+        - git clone https://github.com/alex-shpak/hugo-book themes/hugo-book || echo "Hugo Book theme already exists"
+        # Optional: Run content migration script (if provided)
+        - if [ -f "hugo_theme_migration.py" ]; then
+            echo "Running content migration script...";
+            pip install boto3 pyyaml;
+            python hugo_theme_migration.py;
+            mv new_theme_content/* content/;
           fi
     build:
       commands:
         - export PATH=$PATH:/usr/local/go/bin
         - echo "Building Hugo site..."
-        - ~/.local/bin/hugo --minify --gc
+        # Use new theme (e.g., hugo-book) if migration script ran
+        - if [ -d "themes/hugo-book" ]; then
+            ~/.local/bin/hugo --minify --gc --theme hugo-book;
+          else
+            ~/.local/bin/hugo --minify --gc;
+          fi
   artifacts:
     baseDirectory: public
     files:
@@ -47,6 +66,8 @@ frontend:
     paths:
       - node_modules/**/*
       - static/images/**/*
-      - content/chinese/blog/post/**/*
+      - content/chinese/**/*
       - ~/.local/bin/hugo
       - /usr/local/go/bin/go
+      - themes/hugo-book/**/*
+```
