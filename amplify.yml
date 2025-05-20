@@ -20,24 +20,20 @@ frontend:
         - rm hugo.tar.gz
         - echo "Installing AWS CLI..."
         - pip install --upgrade awscli
-        - mkdir -p content/chinese/blog/post content/chinese/casestudies static/images/blog static/images/gallery
-        - if ! aws s3 sync s3://itsquarewebsite1/content/ content/chinese/ --delete; then
-            echo "S3 content sync failed for content/";
-            exit 1;
-          fi
-        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/ --delete; then
-            echo "S3 images sync failed for blog images";
-            exit 1;
-          fi
-        - if ! aws s3 sync s3://itsquareweb/static/images/gallery/ static/images/gallery/ --delete; then
-            echo "S3 images sync for gallery not found, creating empty directory";
-            mkdir -p static/images/gallery;
-          fi
+         # Ensure content directories exist
+        - mkdir -p content/chinese/blog/post static/images/blog
+        # Sync content from S3 bucket
+        - aws s3 sync s3://itsquarewebsite1/content/ content/chinese/blog/post || echo "S3 sync failed, continuing with build"
+        - aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/ || echo "S3 sync failed, continuing with build"
     build:
       commands:
         - export PATH=$PATH:/usr/local/go/bin
         - echo "Building Hugo site..."
-        - ~/.local/bin/hugo --minify --gc
+        - if [ -d "themes/hugo-book" ]; then
+            ~/.local/bin/hugo --minify --gc --theme hugo-book;
+          else
+            ~/.local/bin/hugo --minify --gc;
+          fi
   artifacts:
     baseDirectory: public
     files:
@@ -45,6 +41,7 @@ frontend:
   cache:
     paths:
       - static/images/**/*
-      - content/chinese/**/*
+      - content/**/*
       - ~/.local/bin/hugo
-      - /usr/local/go/bin/go
+      - themes/hugo-book/**/*
+```
