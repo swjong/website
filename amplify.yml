@@ -5,6 +5,7 @@ frontend:
       commands:
         - echo "Installing dependencies..."
         - sudo yum update -y
+        - sudo yum remove -y curl-minimal
         - sudo yum install -y curl tar python3-pip
         - echo "Installing Go..."
         - curl -OL https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
