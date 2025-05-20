@@ -5,8 +5,10 @@ frontend:
       commands:
         - echo "Installing dependencies..."
         - sudo yum update -y
-        - sudo yum remove -y curl-minimal
-        - sudo yum install -y curl tar python3-pip
+        # Remove this line that's causing the error
+        # - sudo yum remove -y curl-minimal
+        # Add --skip-broken flag to skip problematic packages
+        - sudo yum install -y curl tar python3-pip --skip-broken
         - echo "Installing Go..."
         - curl -OL https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
         - sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
