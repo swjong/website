@@ -18,13 +18,13 @@ tags: ["coastal security", "AI monitoring", "intrusion detection"]
 ---
 ### Monitoring Coastal Vessel Intrusions Using Long-Range Telephoto Lenses
 
-{{< image src="images/dbcoastline.png" caption="" alt="Coastal Surveillance System" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="Discovery Bay Coastal Monitoring"  webp="false" >}}
+{{< image src="/images/dbcoastline.png" caption="" alt="Coastal Surveillance System" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="Discovery Bay Coastal Monitoring"  webp="false" >}}
 
 <hr>
 
 ### Visual Computing Enables Multi-Target Surveillance with Decreasing Costs
 
-{{< gallery dir="images/dbay" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
+{{< gallery dir="/images/dbay" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
 
 <hr>
 
