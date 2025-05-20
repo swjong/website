@@ -6,7 +6,7 @@ categories: ["服務案例", "技術研究"]
 tags: ["AI協作", "生產力優化", "產品測試", "工作流程分析", "知識型員工"]
 keywords: ["產品測試服務", "效率影響評估", "高解析度外接顯示器", "AI增強工作流程", "創意協作工具"]
 description: "創高顧問推出嶄新研究服務，透過多維度測試驗證AI工具與硬體升級，對知識型員工生產力協同效應，提供專業報告及視覺化解決方案。"
-# $ image: "https://via.placeholder.com/1200x600?text=AI+Hardware+Productivity+Study"
+image: "/images/services/services.png"
 ---
 
 # 🌟 AI驅動的硬體效能優化研究服務

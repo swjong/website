@@ -1,6 +1,6 @@
 ---
 title: AI Camera Systems for Security Assistance
-image: "images/aka/AKA_08.jpg"
+image: "/images/aka/AKA_08.jpg"
 email: IT@charmtop.com.hk
 description: this is meta description
 social:
@@ -20,6 +20,6 @@ social:
 
 ### Visual Security Solutions
 
-{{< gallery dir="images/aka" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
+{{< gallery dir="/images/aka" class="" height="300" width="300" webp="true" command="Fit" option="" zoomable="true" >}}
 
 Many buildings lack sufficient security personnel. When facing security challenges, fire hazards, illegal garbage dumping, and other intrusion risks, AI visual technology can immediately identify various potential threats.

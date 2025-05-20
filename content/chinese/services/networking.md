@@ -15,6 +15,7 @@ schema_markup:
   serviceType: "IT基礎設施服務"
   areaServed: "香港"
   description: "專業的網絡佈線、電腦設置和NAS安裝服務，為企業提供持續的維護和支援。"
+image: "/images/services/services.png"
 ---
 
 ## 專業網絡佈線服務

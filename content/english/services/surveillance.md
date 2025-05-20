@@ -3,7 +3,7 @@ title: "AI-Enhanced Security Surveillance"
 date: 2024-01-20
 draft: false
 description: "Leveraging AI for advanced security monitoring and property protection"
-image: "images/service/surveillance.jpg"
+image: "/images/services/services.png"
 tags: ["AI surveillance", "Edge Computing", "Security", "Object Detection", "Segmentation", "VMS", "5G"]
 keywords: ["AI in security", "Surveillance solutions", "Automated security", "5G for surveillance", "AI chip", "VMS integration", "Edge vs. Cloud", "Object Detection", "Anomaly Detection", "Security Automation"]
 ---

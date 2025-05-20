@@ -3,7 +3,7 @@ title: "Network and Cabling Installation Services"
 meta_title: "Professional Network Installation & IT Infrastructure Services"
 description: "Expert network cabling, PC setup, and NAS installation services. Comprehensive IT infrastructure solutions for businesses with professional installation and maintenance."
 date: 2024-08-13T06:14:16Z
-image: "/images/services/networking.jpg"
+image: "/images/services/services.png"
 categories: ["IT Services", "Network Infrastructure"]
 tags: ["network installation", "cabling services", "IT infrastructure", "PC setup", "NAS installation", "network maintenance"]
 draft: false

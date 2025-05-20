@@ -1,7 +1,7 @@
 ---
 title: 商舖及食肆網絡及視像監察
 email: IT@charmtop.com.hk
-image: "images/retailmonitoring.jpeg"
+image: "/images/retailmonitoring.jpeg"
 description: 利用先進視像分析技術為零售及餐飲業提供全面的監控解決方案，實現客流量分析及營運優化
 # social:
 #  - name: github
@@ -18,7 +18,7 @@ description: 利用先進視像分析技術為零售及餐飲業提供全面的�
 ---
 ### 零售及餐飲業智能監控解決方案
 
-{{< gallery dir="images/gallery" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
+{{< gallery dir="/images/gallery" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
 
 在現代零售及餐飲業環境中，精確的客流量分析和高效的營運管理至關重要。我們提供的智能視像監控系統，能夠實時追蹤店內客流量、分析顧客行為模式，並提供寶貴的營運數據。
 

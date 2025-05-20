@@ -3,6 +3,7 @@ title: "AI增强安全監控"
 date: 2024-01-20
 draft: false
 description: "利用AI技術進行先進的安全監控和財產保護"
+image: "/images/services/services.png"
 tags: ["AI監控", "邊緣計算", "安全性", "物件檢測", "分割", "VMS", "5G"]
 keywords: ["AI在安全中的應用", "監控解決方案", "自動化安全", "5G用於監控", "AI晶片", "VMS整合", "邊緣與雲端", "物件檢測", "異常檢測", "安全自動化"]
 ---
