@@ -1,0 +1,63 @@
+<div class="tabs">
+    <div class="tab-nav">
+        {{ range $index, $tab := .Params }}
+            <button class="tab-button{{ if eq $index 0 }} active{{ end }}" data-tab="{{ $index }}">{{ $tab }}</button>
+        {{ end }}
+    </div>
+    <div class="tab-content">
+        {{ .Inner }}
+    </div>
+</div>
+
+<style>
+.tabs {
+    margin: 1rem 0;
+}
+.tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+}
+.tab-button {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+.tab-button.active {
+    border-bottom: 2px solid #007bff;
+}
+.tab-content {
+    padding: 1rem 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tabs');
+    
+    tabs.forEach(tabContainer => {
+        const buttons = tabContainer.querySelectorAll('.tab-button');
+        const contents = tabContainer.querySelectorAll('.tab-content > div');
+        
+        // Hide all content except first
+        for (let i = 1; i < contents.length; i++) {
+            contents[i].style.display = 'none';
+        }
+        
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                // Update active button
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show selected content
+                contents.forEach((content, i) => {
+                    content.style.display = i === index ? 'block' : 'none';
+                });
+            });
+        });
+    });
+});
+</script>

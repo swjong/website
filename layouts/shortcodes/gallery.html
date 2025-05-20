@@ -1,0 +1,12 @@
+<div class="gallery {{ .Get "class" }}" 
+     style="{{ with .Get "height" }}height: {{ . }};{{ end }}
+            {{ with .Get "width" }}width: {{ . }};{{ end }}">
+    {{ range readDir (printf "static/%s" (.Get "dir")) }}
+        {{ if and (not (strings.HasSuffix .Name ".DS_Store")) (ne .Name "thumbnails") }}
+            <img src="{{ $.Get "dir" }}/{{ .Name }}" 
+                 alt="{{ .Name }}" 
+                 style="{{ with $.Get "command" }}object-fit: {{ . }};{{ end }}
+                        {{ if $.Get "zoomable" }}cursor: zoom-in;{{ end }}">
+        {{ end }}
+    {{ end }}
+</div>

@@ -1,0 +1,38 @@
+<div class="notice {{ .Get "type" | default "info" }}">
+    {{ with .Get "title" }}<h3>{{ . }}</h3>{{ end }}
+    <div class="notice-content">
+        {{ .Inner }}
+    </div>
+</div>
+
+<style>
+.notice {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+.notice.info {
+    background-color: #e7f5ff;
+    border-color: #4dabf7;
+}
+.notice.warning {
+    background-color: #fff3bf;
+    border-color: #ffd43b;
+}
+.notice.danger {
+    background-color: #ffecf1;
+    border-color: #ff6b6b;
+}
+.notice.success {
+    background-color: #ebfbee;
+    border-color: #40c057;
+}
+.notice h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.notice-content p:last-child {
+    margin-bottom: 0;
+}
+</style>

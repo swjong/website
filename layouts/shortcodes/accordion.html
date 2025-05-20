@@ -1,0 +1,55 @@
+<div class="accordion">
+    {{ range $index, $item := .Params }}
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                {{ $item }}
+            </button>
+            <div class="accordion-content">
+                {{ index $.Inner $index }}
+            </div>
+        </div>
+    {{ end }}
+</div>
+
+<style>
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+.accordion-item:last-child {
+    border-bottom: none;
+}
+.accordion-header {
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    background: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.accordion-header:hover {
+    background: #e9ecef;
+}
+.accordion-content {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+    padding: 1rem;
+    max-height: 1000px;
+}
+</style>
+
+<script>
+function toggleAccordion(button) {
+    const content = button.nextElementSibling;
+    content.classList.toggle('active');
+}
+</script>

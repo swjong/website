@@ -1,0 +1,48 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing dependencies..."
+        - sudo apt-get update && sudo apt-get install -y curl tar python3-pip
+        - echo "Installing Go..."
+        - curl -OL https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
+        - sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+        - export PATH=$PATH:/usr/local/go/bin
+        - go version
+        - echo "Installing Hugo..."
+        - curl -L https://github.com/gohugoio/hugo/releases/download/v0.123.7/hugo_extended_0.123.7_Linux-64bit.tar.gz -o hugo.tar.gz
+        - tar -xzf hugo.tar.gz
+        - mkdir -p ~/.local/bin
+        - mv hugo ~/.local/bin/
+        - export PATH=~/.local/bin:$PATH
+        - rm hugo.tar.gz
+        - echo "Installing AWS CLI..."
+        - pip install --upgrade awscli
+        # Ensure content directories exist
+        - mkdir -p content/chinese/blog/post static/images/blog
+        # Sync content from S3 bucket with error handling
+        - if ! aws s3 sync s3://itsquarewebsite1/content/ content/chinese/blog/post; then
+            echo "S3 content sync failed";
+            exit 1;
+          fi
+        - if ! aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/; then
+            echo "S3 images sync failed";
+            exit 1;
+          fi
+    build:
+      commands:
+        - export PATH=$PATH:/usr/local/go/bin
+        - echo "Building Hugo site..."
+        - ~/.local/bin/hugo --minify --gc
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - static/images/**/*
+      - content/chinese/blog/post/**/*
+      - ~/.local/bin/hugo
+      - /usr/local/go/bin/go

@@ -1,0 +1,74 @@
+<div class="slider-container">
+    <div class="slider">
+        {{ $images := split .Params.images "," }}
+        {{ range $images }}
+            <div class="slide">
+                <img src="{{ . | strings.Trim " " }}" alt="">
+            </div>
+        {{ end }}
+    </div>
+    <button class="slider-prev">❮</button>
+    <button class="slider-next">❯</button>
+</div>
+
+<style>
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.slide {
+    min-width: 100%;
+}
+.slide img {
+    width: 100%;
+    height: auto;
+}
+.slider-prev, .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+.slider-prev {
+    left: 0;
+}
+.slider-next {
+    right: 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+        updateSlider();
+    });
+
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+    });
+});
+</script>

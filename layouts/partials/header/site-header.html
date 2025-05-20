@@ -1,0 +1,13 @@
+<header class="site-header">
+    <div class="site-header__title">
+        <a href="{{ .Site.Home.RelPermalink }}" class="site-header__title-link">
+            {{ if .Site.Params.Logo }}
+                <img src="{{ .Site.Params.Logo | relURL }}" alt="{{ .Site.Title }}" class="site-logo" />
+            {{ else }}
+                {{ .Site.Title }}
+            {{ end }}
+        </a>
+    </div>
+    
+    {{ partial "header/menu.html" . }}
+</header>

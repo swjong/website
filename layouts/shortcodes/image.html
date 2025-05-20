@@ -1,0 +1,8 @@
+<figure class="{{ .Get "class" }}" style="{{ with .Get "width" }}width: {{ . }};{{ end }}{{ with .Get "height" }}height: {{ . }};{{ end }}">
+    <img src="{{ .Get "src" }}" 
+         alt="{{ .Get "alt" }}" 
+         title="{{ .Get "title" }}"
+         style="{{ with .Get "position" }}object-position: {{ . }};{{ end }}
+                {{ with .Get "command" }}object-fit: {{ . }};{{ end }}">
+    {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

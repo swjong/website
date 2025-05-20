@@ -1,0 +1,63 @@
+// Logo customization
+.navbar-brand img {
+  max-height: 24px;
+  width: auto;
+}
+
+// Remove any remaining avatar styles
+.avatar-container {
+  display: none;
+}
+
+// Target the specific circle avatar in the header
+.site-avatar {
+  display: none;
+}
+
+// Hide the circle in the sidebar
+.sidebar .avatar {
+  display: none;
+}
+
+// Ensure the logo is visible
+.site-name {
+  display: block;
+}
+
+// Additional styling to ensure the logo is properly displayed
+.site-logo {
+  display: block;
+  max-height: 40px;
+  width: auto;
+}
+
+// Make sure the site header logo is visible and properly sized
+.site-header__title-link img {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-height: 40px;
+  width: auto;
+}
+
+// Ensure the logo is not hidden by other styles
+img.site-logo {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+// Placeholder image style
+.placeholder-image {
+  width: 1200px;
+  max-width: 100%;
+  height: 600px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin: 20px 0;
+}

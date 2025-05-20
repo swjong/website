@@ -1,0 +1,13 @@
+[en]
+languageName = "English"
+languagedirection = "ltr"
+title = "Charmtop Consultants"
+contentDir = "content/english"
+weight = 2
+
+[zh]
+languageName = "中文"
+languagedirection = "ltr"
+title = "創高顧問有限公司"
+contentDir = "content/chinese"
+weight = 1

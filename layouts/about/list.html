@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="content">
+          <h1 class="mb-4">{{ .Title }}</h1>
+          
+          <!-- This is the important part that ensures content is displayed -->
+          <div class="content">
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
