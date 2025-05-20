@@ -1,5 +1,5 @@
 # Change baseurl before deploy
-baseurl = "https://main.d29ifgyj5g2zyq.amplifyapp.com"
+baseurl = "https://main.d29ifgyj5g2zyq.amplifyapp.com/"
 languageCode = "en-us"
 title = "Charmtop Consultants"
 
