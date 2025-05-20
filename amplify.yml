@@ -4,7 +4,8 @@ frontend:
     preBuild:
       commands:
         - echo "Installing dependencies..."
-        - sudo apt-get update && sudo apt-get install -y curl tar python3-pip
+        - sudo yum update -y
+        - sudo yum install -y curl tar python3-pip
         - echo "Installing Go..."
         - curl -OL https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
         - sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
