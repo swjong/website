@@ -22,7 +22,7 @@ frontend:
         - echo "Installing AWS CLI..."
         - pip install --upgrade awscli
         # Ensure content and static directories exist
-        - mkdir -p content/chinese/blog/post static/images/blog
+        - mkdir -p content/chinese/blog/post content/chinese/casestudies content/chinese/about static/images/blog static/images/gallery static/images/Dbay static/images/AKA
         # Sync content from S3
         - aws s3 sync s3://itsquarewebsite1/content/ content/chinese/blog/ || echo "S3 sync failed, continuing with build"
         - aws s3 sync s3://itsquareweb/static/images/blog/ static/images/blog/ || echo "S3 sync failed, continuing with build"

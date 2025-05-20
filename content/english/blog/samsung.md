@@ -4,7 +4,7 @@ title: "AI Revolutionizing Mobile Communication: Samsung Galaxy A56 5G and A36 5
 meta_title: "Samsung Galaxy A Series: AI Features for Enterprise & Knowledge Workers"
 description: "Explore how AI-driven features in Samsung's Galaxy A56 5G and A36 5G are transforming mobile communication, enhancing productivity for knowledge workers, and offering enterprise solutions for seamless efficiency."
 date: 2025-03-14T09:00:00+08:00
-image: "images/samsung.jpg"
+image: "/images/samsung.jpg"
 categories: ["Technology", "Mobile", "Enterprise Solutions"]
 author: "Technical Team"
 tags: ["AI", "Samsung", "mobile technology", "productivity tools", "enterprise solutions", "Galaxy A56 5G", "Galaxy A36 5G"]

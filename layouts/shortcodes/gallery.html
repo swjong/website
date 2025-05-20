@@ -4,7 +4,7 @@
     {{ $dir := strings.TrimPrefix "/" (.Get "dir") }}
     {{ range readDir (printf "static/%s" $dir) }}
         {{ if and (not (strings.HasSuffix .Name ".DS_Store")) (ne .Name "thumbnails") }}
-            <img src="/{{ $dir }}/{{ .Name }}" 
+            <img src="{{ (printf "%s/%s" $dir .Name) | absURL }}" 
                  alt="{{ .Name }}" 
                  loading="lazy"
                  style="{{ with $.Get "command" }}object-fit: {{ . }};{{ end }}
