@@ -22,6 +22,6 @@ social:
 
 ### Enhance maritime security with our AI-powered surveillance solution. Leveraging the speed and reliability of 5G connectivity, our system detects and tracks any unauthorized vessels entering your waters in real-time, providing swift and effective response capabilities
 
-{{< gallery dir="images/Dbay" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
+{{< gallery dir="images/dbay" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true" >}}
 
 ### cameras, strategically deployed at remote sites, utilize advanced AI algorithms to detect and track any unauthorized vessels approaching your perimeter in real-time, providing swift and effective response capabilitie

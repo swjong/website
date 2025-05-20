@@ -16,7 +16,7 @@ title: Computer Vision for Property Security
 #    icon: fa-brands fa-linkedin
 #    link: https://linkedin.com
 ---
-{{< gallery dir="images/AKA" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true">}}
+{{< gallery dir="images/aka" class="" height="400" width="400" webp="true" command="Fit" option="" zoomable="true">}}
 
 #property management industry is currently grappling with a severe manpower shortage issue. In response, many
 property owners are turning to innovations at the forefront of security: Artificial Intelligence (AI) and Computer
