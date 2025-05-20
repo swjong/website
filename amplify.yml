@@ -34,4 +34,3 @@ frontend:
       - static/images/**/*
       - content/**/*
       - ~/.local/bin/hugo
-```
