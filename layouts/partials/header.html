@@ -20,9 +20,9 @@
           <div class="language-switcher ml-4">
             <!-- Hardcoded language switcher that will always appear -->
             {{ if eq .Language.Lang "en" }}
-              <a href="/zh/" class="text-dark dark:text-white font-medium">中文</a>
+              <a href="{{ "/zh/" | relLangURL }}" class="text-dark dark:text-white font-medium">中文</a>
             {{ else }}
-              <a href="/en/" class="text-dark dark:text-white font-medium">English</a>
+              <a href="{{ "/en/" | relLangURL }}" class="text-dark dark:text-white font-medium">English</a>
             {{ end }}
           </div>
         {{ end }}
